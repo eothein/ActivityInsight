@@ -3,9 +3,9 @@ package be.equality.activityinsight
 import java.io.Serializable
 
 /**
- * Data class which contains all the counters of the life cycle methods.
+ * Class that contains all the counters of the life cycle methods.
  *
- * Attributes are private so they can only be incremented, not changed directly
+ * Attributes are private so they can only be incremented, not changed directly (encapsulation)
  */
 class LifecycleMethodCounter : Serializable {
     var onCreate: Int = 0
