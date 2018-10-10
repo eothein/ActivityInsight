@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ActivityInsight</string>
+    <string name="btn_next_activity">Go to next activity</string>
+    <string name="go_to_previous_activity">Go to previous activity</string>
 </resources>

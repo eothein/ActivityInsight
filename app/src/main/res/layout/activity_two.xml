@@ -112,8 +112,8 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/btn_next_activity"
+        android:id="@+id/btn_prev_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_next_activity" />
+        android:text="@string/go_to_previous_activity"/>
 </LinearLayout>

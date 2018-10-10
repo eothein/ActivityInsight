@@ -1,19 +1,17 @@
 package be.equality.activityinsight
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_two.*
 
-
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
     private var counter: LifecycleMethodCounter = LifecycleMethodCounter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_two)
 
         //If savedInstanceState is not null, getSerializable will be called
         //Otherwise this line is skipped
@@ -32,11 +30,9 @@ class MainActivity : AppCompatActivity() {
         textViewOnStartNumber.text = "${counter.onStart}"
         Log.d(TAG, "onStart called for the ${counter.onCreate} time")
 
-        btn_next_activity.setOnClickListener {
-            val otherActivityIntent = Intent(this, SecondActivity::class.java)
-            startActivity(otherActivityIntent)
+        btn_prev_activity.setOnClickListener {
+            finish()
         }
-
     }
 
     override fun onResume() {
@@ -82,8 +78,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val COUNTER = "counter"
-        private const val TAG = "MainActivity"
+        private const val TAG = "SecondActivity"
     }
-
-
 }
+
+
