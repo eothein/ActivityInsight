@@ -7,26 +7,20 @@ import java.io.Serializable
  *
  * Attributes are private so they can only be incremented, not changed directly
  */
-class LifecycleMethodCounter(onCreate: Int = 0,
-                             onStart: Int = 0,
-                             onResume: Int = 0,
-                             onRestart: Int = 0,
-                             onPause: Int = 0,
-                             onStop: Int = 0,
-                             onDestroy: Int = 0) : Serializable {
-    var onCreate: Int = onCreate
+class LifecycleMethodCounter : Serializable {
+    var onCreate: Int = 0
         private set
-    var onStart: Int = onStart
+    var onStart: Int = 0
         private set
-    var onResume: Int = onResume
+    var onResume: Int = 0
         private set
-    var onRestart: Int = onRestart
+    var onRestart: Int = 0
         private set
-    var onPause: Int = onPause
+    var onPause: Int = 0
         private set
-    var onStop: Int = onStop
+    var onStop: Int = 0
         private set
-    var onDestroy: Int = onDestroy
+    var onDestroy: Int = 0
         private set
 
     fun onDestroyCalled() {
