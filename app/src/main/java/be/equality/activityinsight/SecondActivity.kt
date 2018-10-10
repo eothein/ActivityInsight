@@ -17,7 +17,7 @@ class SecondActivity : CountingActivity() {
 
     override fun onStop() {
         super.onStop()
-        btn_prev_activity.setOnClickListener { null }
+        btn_prev_activity.setOnClickListener(null)
     }
 }
 
