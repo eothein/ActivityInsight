@@ -54,6 +54,6 @@ class LifecycleMethodCounter(onCreate: Int = 0,
     }
 
     fun onCreateCalled() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        onCreate++
     }
 }
