@@ -1,4 +1,4 @@
-package be.equality.activityinsight
+package be.hogent.activityinsight
 
 import kotlinx.android.synthetic.main.activity_two.*
 
