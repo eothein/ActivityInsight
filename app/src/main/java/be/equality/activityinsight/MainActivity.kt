@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         counter.onPauseCalled()
-        textViewOnPausetNumber.text = "${counter.onPause}"
+        textViewOnPauseNumber.text = "${counter.onPause}"
 
         Log.d(TAG, "onPause called for the ${counter.onCreate} time")
     }
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         counter.onStopCalled()
-        textViewOnStoptNumber.text = "${counter.onStop}"
+        textViewOnStopNumber.text = "${counter.onStop}"
         Log.d(TAG, "onStop called for the ${counter.onCreate} time")
     }
 
