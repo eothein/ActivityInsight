@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "be.equality.activityinsight"
+        applicationId "be.hogent.activityinsight"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
