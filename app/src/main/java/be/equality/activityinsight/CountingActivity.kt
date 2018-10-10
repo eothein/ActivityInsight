@@ -28,7 +28,7 @@ abstract class CountingActivity : AppCompatActivity() {
 
         counter.onCreateCalled()
         textViewOnCreateNumber.text = "${counter.onCreate}"
-        Log.d(TAG, "onCreate called for the ${counter.onCreate} time")
+        Log.i(TAG, "onCreate called ${counter.onCreate} times")
     }
 
     /**
@@ -41,23 +41,35 @@ abstract class CountingActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         counter.onStartCalled()
-        textViewOnStartNumber.text = "${counter.onStart}"
-        Log.d(TAG, "onStart called for the ${counter.onCreate} time")
+        /**
+         * When onStart is called we shouldn't just update that text, but all texts
+         * After a configuration change all textfields would otherwise be empty instead of displaying 0.
+         */
+        updateUI()
+        Log.i(TAG, "onStart called ${counter.onCreate} times")
+    }
 
+    private fun updateUI() {
+        textViewOnStartNumber.text = "${counter.onStart}"
+        textViewOnResumeNumber.text = "${counter.onResume}"
+        textViewOnRestartNumber.text = "${counter.onRestart}"
+        textViewOnPauseNumber.text = "${counter.onPause}"
+        textViewOnStopNumber.text = "${counter.onStop}"
+        textViewOnDestroyNumber.text = "${counter.onDestroy}"
     }
 
     override fun onResume() {
         super.onResume()
         counter.onResumeCalled()
         textViewOnResumeNumber.text = "${counter.onResume}"
-        Log.d(TAG, "onResume called for the ${counter.onCreate} time")
+        Log.i(TAG, "onResume called ${counter.onCreate} times")
     }
 
     override fun onRestart() {
         super.onRestart()
         counter.onRestartCalled()
         textViewOnRestartNumber.text = "${counter.onRestart}"
-        Log.d(TAG, "onRestart called for the ${counter.onCreate} time")
+        Log.i(TAG, "onRestart called ${counter.onCreate} times")
     }
 
     override fun onPause() {
@@ -65,21 +77,21 @@ abstract class CountingActivity : AppCompatActivity() {
         counter.onPauseCalled()
         textViewOnPauseNumber.text = "${counter.onPause}"
 
-        Log.d(TAG, "onPause called for the ${counter.onCreate} time")
+        Log.i(TAG, "onPause called ${counter.onCreate} times")
     }
 
     override fun onStop() {
         super.onStop()
         counter.onStopCalled()
         textViewOnStopNumber.text = "${counter.onStop}"
-        Log.d(TAG, "onStop called for the ${counter.onCreate} time")
+        Log.i(TAG, "onStop called ${counter.onCreate} times")
     }
 
     override fun onDestroy() {
         super.onDestroy()
         counter.onDestroyCalled()
         textViewOnDestroyNumber.text = "${counter.onDestroy}"
-        Log.d(TAG, "onDestroy called for the ${counter.onCreate} time")
+        Log.i(TAG, "onDestroy called ${counter.onCreate} times")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
