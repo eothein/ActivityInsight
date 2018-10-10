@@ -1,5 +1,7 @@
 package be.hogent.activityinsight
 
+import android.content.Context
+import android.content.Intent
 import kotlinx.android.synthetic.main.activity_two.*
 
 class SecondActivity : CountingActivity() {
@@ -18,6 +20,12 @@ class SecondActivity : CountingActivity() {
     override fun onStop() {
         super.onStop()
         btn_prev_activity.setOnClickListener(null)
+    }
+
+    companion object {
+        fun newIntent(context: Context): Intent {
+            return Intent(context, SecondActivity::class.java)
+        }
     }
 }
 

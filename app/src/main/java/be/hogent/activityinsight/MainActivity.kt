@@ -1,6 +1,5 @@
 package be.hogent.activityinsight
 
-import android.content.Intent
 import kotlinx.android.synthetic.main.activity_one.*
 
 
@@ -12,8 +11,7 @@ class MainActivity : CountingActivity() {
     override fun onStart() {
         super.onStart()
         btn_next_activity.setOnClickListener {
-            val otherActivityIntent = Intent(this, SecondActivity::class.java)
-            startActivity(otherActivityIntent)
+            startActivity(SecondActivity.newIntent(this))
         }
     }
 
