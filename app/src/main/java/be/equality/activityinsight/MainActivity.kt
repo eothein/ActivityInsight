@@ -12,6 +12,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //If savedInstanceState is not null, getSerializable will be called
+        //Otherwise this line is skipped
+        savedInstanceState?.let {
+           counter = it.getSerializable(COUNTER) as LifecycleMethodCounter
+        }
+
         counter.onCreateCalled()
         textViewOnCreateNumber.text = "${counter.onCreate}"
     }
@@ -52,6 +59,15 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         counter.onDestroyCalled()
         textViewOnDestroyNumber.text = "${counter.onDestroy}"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putSerializable(COUNTER, counter)
+    }
+
+    companion object {
+        private const val COUNTER = "counter"
     }
 
 
