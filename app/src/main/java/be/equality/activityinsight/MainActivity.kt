@@ -5,9 +5,9 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity() : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    private var counter : LifecycleMethodCounter = LifecycleMethodCounter(0,0,0,0,0,0,0)
+    private var counter : LifecycleMethodCounter = LifecycleMethodCounter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
