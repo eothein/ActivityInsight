@@ -1,85 +1,23 @@
 package be.equality.activityinsight
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_two.*
-import kotlinx.android.synthetic.main.counter_table.*
 
-class SecondActivity : AppCompatActivity() {
+class SecondActivity : CountingActivity() {
 
-    private var counter: LifecycleMethodCounter = LifecycleMethodCounter()
+    override val TAG: String = "MainActivity"
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_two)
-
-        //If savedInstanceState is not null, getSerializable will be called
-        //Otherwise this line is skipped
-        savedInstanceState?.let {
-            counter = it.getSerializable(COUNTER) as LifecycleMethodCounter
-        }
-
-        counter.onCreateCalled()
-        textViewOnCreateNumber.text = "${counter.onCreate}"
-        Log.d(TAG, "onCreate called for the ${counter.onCreate} time")
-    }
+    override fun getLayoutId() = R.layout.activity_two
 
     override fun onStart() {
         super.onStart()
-        counter.onStartCalled()
-        textViewOnStartNumber.text = "${counter.onStart}"
-        Log.d(TAG, "onStart called for the ${counter.onCreate} time")
-
         btn_prev_activity.setOnClickListener {
             finish()
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        counter.onResumeCalled()
-        textViewOnResumeNumber.text = "${counter.onResume}"
-        Log.d(TAG, "onResume called for the ${counter.onCreate} time")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        counter.onRestartCalled()
-        textViewOnRestartNumber.text = "${counter.onRestart}"
-        Log.d(TAG, "onRestart called for the ${counter.onCreate} time")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        counter.onPauseCalled()
-        textViewOnPauseNumber.text = "${counter.onPause}"
-
-        Log.d(TAG, "onPause called for the ${counter.onCreate} time")
-    }
-
     override fun onStop() {
         super.onStop()
-        counter.onStopCalled()
-        textViewOnStopNumber.text = "${counter.onStop}"
-        Log.d(TAG, "onStop called for the ${counter.onCreate} time")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        counter.onDestroyCalled()
-        textViewOnDestroyNumber.text = "${counter.onDestroy}"
-        Log.d(TAG, "onDestroy called for the ${counter.onCreate} time")
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putSerializable(COUNTER, counter)
-    }
-
-    companion object {
-        private const val COUNTER = "counter"
-        private const val TAG = "SecondActivity"
+        btn_prev_activity.setOnClickListener { null }
     }
 }
 
