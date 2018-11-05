@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-    <include
-        layout="@layout/counter_table"/>
+    <data>
 
-    <Button
-        android:id="@+id/btn_next_activity"
+        <variable
+            name="viewModel"
+            type="be.hogent.activityinsight.CountingViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_next_activity" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--
+        To pass the ViewModel that is held here into the included layout, we use the bind parameter.
+        The included layout should also define a variable for the viewModel.
+        -->
+        <include
+            layout="@layout/counter_table"
+            bind:viewModel="@{viewModel}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{viewModel::onSecondActivityButtonClicked}"
+            android:text="@string/btn_next_activity" />
+    </LinearLayout>
+</layout>

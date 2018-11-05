@@ -1,23 +1,27 @@
 package be.hogent.activityinsight
 
-import kotlinx.android.synthetic.main.activity_one.*
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
+import be.hogent.activityinsight.databinding.ActivityOneBinding
 
 
 class MainActivity : CountingActivity() {
-    override val TAG: String = "MainActivity"
-
-    override fun getLayoutId() = R.layout.activity_one
 
     override fun onStart() {
         super.onStart()
-        btn_next_activity.setOnClickListener {
+        mCountingViewModel.secondActivityEvent.observe(this, Observer {
             startActivity(SecondActivity.newIntent(this))
-        }
+        })
     }
 
-    override fun onStop() {
-        super.onStop()
-        btn_next_activity.setOnClickListener(null)
+    override fun initializeViewAndDataBinding() {
+        val binding: ActivityOneBinding = DataBindingUtil.setContentView(this, R.layout.activity_one)
+
+        mCountingViewModel = ViewModelProviders.of(this).get(CountingViewModel::class.java)
+
+        binding.viewModel = mCountingViewModel
+        binding.setLifecycleOwner(this)
     }
 
 }
