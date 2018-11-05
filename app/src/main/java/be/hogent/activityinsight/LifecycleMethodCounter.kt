@@ -41,36 +41,36 @@ class LifecycleMethodCounter : Serializable, BaseObservable() {
 
     fun onDestroyCalled() {
         onDestroy++
-        notifyChange()
+        notifyPropertyChanged(BR.onDestroy)
     }
 
     fun onStopCalled() {
         onStop++
-        notifyChange()
+        notifyPropertyChanged(BR.onStop)
     }
 
     fun onPauseCalled() {
         onPause++
-        notifyChange()
+        notifyPropertyChanged(BR.onPause)
     }
 
     fun onRestartCalled() {
         onRestart++
-        notifyChange()
+        notifyPropertyChanged(BR.onRestart)
     }
 
     fun onResumeCalled() {
         onResume++
-        notifyChange()
+        notifyPropertyChanged(BR.onResume)
     }
 
     fun onStartCalled() {
         onStart++
-        notifyChange()
+        notifyPropertyChanged(BR.onStart)
     }
 
     fun onCreateCalled() {
         onCreate++
-        notifyChange()
+        notifyPropertyChanged(BR.onCreate)
     }
 }
