@@ -1,108 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:stretchColumns="*">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TableRow>
+    <data>
 
-        <TextView
-            android:id="@+id/textViewOnCreateText"
-            android:layout_width="match_parent"
-            android:text="onCreate" />
+        <variable
+            name="counter"
+            type="be.hogent.activityinsight.LifecycleMethodCounter" />
+    </data>
 
-        <TextView
-            android:id="@+id/textViewOnCreateNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
 
-    <TableRow>
+        <TableRow>
 
-        <TextView
-            android:id="@+id/textViewOnStartText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onStart" />
+            <TextView
+                android:id="@+id/textViewOnCreateText"
+                android:layout_width="match_parent"
+                android:text="@string/oncreate" />
 
-        <TextView
-            android:id="@+id/textViewOnStartNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>
+            <TextView
+                android:id="@+id/textViewOnCreateNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onCreate)}"/>
+        </TableRow>
 
-    <TableRow>
+        <TableRow>
 
-        <TextView
-            android:id="@+id/textViewOnResumeText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onResume" />
+            <TextView
+                android:id="@+id/textViewOnStartText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onstart" />
 
-        <TextView
-            android:id="@+id/textViewOnResumeNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>
+            <TextView
+                android:id="@+id/textViewOnStartNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onStart)}"/>
+        </TableRow>
 
-    <TableRow>
+        <TableRow>
 
-        <TextView
-            android:id="@+id/textViewOnRestartText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onRestart" />
+            <TextView
+                android:id="@+id/textViewOnResumeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onresume" />
 
-        <TextView
-            android:id="@+id/textViewOnRestartNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/textViewOnResumeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onResume)}"/>
+        </TableRow>
 
-    </TableRow>
+        <TableRow>
 
-    <TableRow>
+            <TextView
+                android:id="@+id/textViewOnRestartText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onrestart" />
 
-        <TextView
-            android:id="@+id/textViewOnPauseText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onPause" />
+            <TextView
+                android:id="@+id/textViewOnRestartNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onRestart)}"/>
 
-        <TextView
-            android:id="@+id/textViewOnPauseNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        </TableRow>
 
-    </TableRow>
+        <TableRow>
 
-    <TableRow>
+            <TextView
+                android:id="@+id/textViewOnPauseText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onpause" />
 
-        <TextView
-            android:id="@+id/textViewOnStopText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onStop" />
+            <TextView
+                android:id="@+id/textViewOnPauseNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onPause)}"/>
 
-        <TextView
-            android:id="@+id/textViewOnStopNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        </TableRow>
 
-    </TableRow>
+        <TableRow>
 
-    <TableRow>
+            <TextView
+                android:id="@+id/textViewOnStopText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/onstop" />
 
-        <TextView
-            android:id="@+id/textViewOnDestroyText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="onDestroy" />
+            <TextView
+                android:id="@+id/textViewOnStopNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onStop)}"/>
 
-        <TextView
-            android:id="@+id/textViewOnDestroyNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </TableRow>
+        </TableRow>
 
-</TableLayout>
+        <TableRow>
 
+            <TextView
+                android:id="@+id/textViewOnDestroyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ondestroy" />
+
+            <TextView
+                android:id="@+id/textViewOnDestroyNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(counter.onDestroy)}"/>
+        </TableRow>
+
+    </TableLayout>
+
+</layout>
