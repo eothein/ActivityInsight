@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import be.hogent.activityinsight.databinding.ActivityOneBinding
+import timber.log.Timber
 
 
 /**
@@ -14,10 +15,6 @@ import be.hogent.activityinsight.databinding.ActivityOneBinding
 abstract class CountingActivity : AppCompatActivity() {
     protected var counter: LifecycleMethodCounter = LifecycleMethodCounter()
 
-    /**
-     * The TAG that will be used for logging
-     */
-    abstract val TAG : String
 
     lateinit var binding : ActivityOneBinding
 
@@ -34,11 +31,11 @@ abstract class CountingActivity : AppCompatActivity() {
 
         counter.onCreateCalled()
         updateUI()
-        Log.i(TAG, "onCreate called ${counter.onCreate} times")
+        Timber.i("oncreate called ${counter.onCreate} times")
     }
 
 
-    fun updateUI(){
+    private fun updateUI(){
         binding.counter = counter
     }
 
@@ -46,47 +43,48 @@ abstract class CountingActivity : AppCompatActivity() {
         super.onStart()
         counter.onStartCalled()
         updateUI()
-        Log.i(TAG, "onStart called ${counter.onCreate} times")
+        Timber.i("onStart called ${counter.onCreate} times")
     }
 
     override fun onResume() {
         super.onResume()
         counter.onResumeCalled()
         updateUI()
-        Log.i(TAG, "onResume called ${counter.onCreate} times")
+        Timber.i("onResume called ${counter.onCreate} times")
     }
 
     override fun onRestart() {
         super.onRestart()
         counter.onRestartCalled()
         updateUI()
-        Log.i(TAG, "onRestart called ${counter.onCreate} times")
+        Timber.i("onRestart called ${counter.onCreate} times")
     }
 
     override fun onPause() {
         super.onPause()
         counter.onPauseCalled()
         updateUI()
-        Log.i(TAG, "onPause called ${counter.onCreate} times")
+        Timber.i("onPause called ${counter.onCreate} times")
     }
 
     override fun onStop() {
         super.onStop()
         counter.onStopCalled()
         updateUI()
-        Log.i(TAG, "onStop called ${counter.onCreate} times")
+       Timber.i("onStop called ${counter.onCreate} times")
     }
 
     override fun onDestroy() {
         super.onDestroy()
         counter.onDestroyCalled()
         updateUI()
-        Log.i(TAG, "onDestroy called ${counter.onCreate} times")
+        Timber.i("onDestroy called ${counter.onCreate} times")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putSerializable(COUNTER, counter)
+        Timber.i("saving state $counter")
     }
 
 

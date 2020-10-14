@@ -10,9 +10,6 @@ import kotlinx.android.synthetic.main.activity_two.*
 
 class SecondActivity : CountingActivity() {
 
-    override val TAG: String = "SecondActivity"
-
-
     override fun onStart() {
         super.onStart()
         btn_next_activity.setOnClickListener {

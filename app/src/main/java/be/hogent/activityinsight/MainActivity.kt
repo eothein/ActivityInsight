@@ -7,7 +7,6 @@ import kotlinx.android.synthetic.main.activity_one.*
 
 
 class MainActivity : CountingActivity() {
-    override val TAG: String = "MainActivity"
 
 
     override fun onStart() {
