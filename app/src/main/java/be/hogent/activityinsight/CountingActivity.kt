@@ -1,13 +1,10 @@
 package be.hogent.activityinsight
 
 import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import be.hogent.activityinsight.databinding.ActivityOneBinding
 import timber.log.Timber
-
 
 /**
  * This class is a superclass for activities that count and display their lifecycle method calls
@@ -15,16 +12,15 @@ import timber.log.Timber
 abstract class CountingActivity : AppCompatActivity() {
     protected var counter: LifecycleMethodCounter = LifecycleMethodCounter()
 
-
-    lateinit var binding : ActivityOneBinding
+    lateinit var binding: ActivityOneBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_one)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_one)
         binding.counter = counter
 
-        //If savedInstanceState is not null, getSerializable will be called
-        //Otherwise this line is skipped
+        // If savedInstanceState is not null, getSerializable will be called
+        // Otherwise this line is skipped
         savedInstanceState?.let {
             binding.counter = it.getSerializable(COUNTER) as LifecycleMethodCounter
         }
@@ -34,8 +30,7 @@ abstract class CountingActivity : AppCompatActivity() {
         Timber.i("oncreate called ${counter.onCreate} times")
     }
 
-
-    private fun updateUI(){
+    private fun updateUI() {
         binding.counter = counter
     }
 
@@ -71,7 +66,7 @@ abstract class CountingActivity : AppCompatActivity() {
         super.onStop()
         counter.onStopCalled()
         updateUI()
-       Timber.i("onStop called ${counter.onCreate} times")
+        Timber.i("onStop called ${counter.onCreate} times")
     }
 
     override fun onDestroy() {
@@ -86,8 +81,6 @@ abstract class CountingActivity : AppCompatActivity() {
         outState.putSerializable(COUNTER, counter)
         Timber.i("saving state $counter")
     }
-
-
 
     companion object {
         private const val COUNTER = "counter"

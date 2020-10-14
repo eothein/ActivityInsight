@@ -1,13 +1,8 @@
 package be.hogent.activityinsight
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
-import be.hogent.activityinsight.databinding.ActivityOneBinding
 import kotlinx.android.synthetic.main.activity_one.*
 
-
 class MainActivity : CountingActivity() {
-
 
     override fun onStart() {
         super.onStart()
@@ -20,5 +15,4 @@ class MainActivity : CountingActivity() {
         super.onStop()
         btn_next_activity.setOnClickListener(null)
     }
-
 }
