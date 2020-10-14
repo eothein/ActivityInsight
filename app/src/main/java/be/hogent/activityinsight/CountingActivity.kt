@@ -19,12 +19,6 @@ abstract class CountingActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_one)
         binding.counter = counter
 
-        // If savedInstanceState is not null, getSerializable will be called
-        // Otherwise this line is skipped
-        savedInstanceState?.let {
-            binding.counter = it.getSerializable(COUNTER) as LifecycleMethodCounter
-        }
-
         counter.onCreateCalled()
         updateUI()
 
@@ -91,7 +85,6 @@ abstract class CountingActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putSerializable(COUNTER, counter)
         Timber.i("saving state $counter")
     }
 
