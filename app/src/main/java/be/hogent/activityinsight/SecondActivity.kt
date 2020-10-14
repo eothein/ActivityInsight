@@ -2,10 +2,16 @@ package be.hogent.activityinsight
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_one.*
 import kotlinx.android.synthetic.main.activity_two.*
 
 class SecondActivity : CountingActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setActionBar("Second Activity")
+    }
 
     override fun onStart() {
         super.onStart()

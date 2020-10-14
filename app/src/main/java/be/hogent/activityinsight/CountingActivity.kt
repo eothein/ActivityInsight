@@ -1,9 +1,9 @@
 package be.hogent.activityinsight
-
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import be.hogent.activityinsight.databinding.ActivityOneBinding
+import kotlinx.android.synthetic.main.activity_one.*
 import timber.log.Timber
 
 /**
@@ -27,7 +27,20 @@ abstract class CountingActivity : AppCompatActivity() {
 
         counter.onCreateCalled()
         updateUI()
+
+        setSupportActionBar(my_toolbar)
         Timber.i("oncreate called ${counter.onCreate} times")
+    }
+
+    /**
+     * Formats the action bar of the Activity
+     */
+    open fun setActionBar(heading: String?) {
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setDisplayShowHomeEnabled(false)
+        supportActionBar?.title = heading
+        supportActionBar?.show()
     }
 
     private fun updateUI() {
