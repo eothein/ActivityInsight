@@ -9,4 +9,5 @@
     <string name="onpause">onPause</string>
     <string name="onstop">onStop</string>
     <string name="ondestroy">onDestroy</string>
+    <string name="btn_prev_activity">Go back</string>
 </resources>

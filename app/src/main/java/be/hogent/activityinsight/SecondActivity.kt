@@ -11,6 +11,7 @@ class SecondActivity : CountingActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setActionBar("Second Activity")
+        btn_next_activity.setText(R.string.btn_prev_activity)
     }
 
     override fun onStart() {
